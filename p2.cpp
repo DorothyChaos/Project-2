@@ -44,11 +44,36 @@ int main(const int argc, const char * argv []){
           printw(stringArray[i].c_str());
           printw("\n");
         }
-        refresh(); //this will display the contents of the window
+        refresh(); //this will display the contents of stdscr window
         keypad([name of window], TRUE); //enables reading of function keys
         
         //Code to take input
-        
+        while(done != TRUE){
+          int action = getch();
+          switch(action){
+            case KEY_UP:
+                break;
+            case KEY_DOWN:
+                break;
+            case KEY_LEFT:
+                break;
+            case KEY_RIGHT:
+                break;
+            case KEY_BACKSPACE:
+                break;
+            case ' ':
+                break; //spacebar was pressed
+            case KEY_TAB:
+                break;
+            case KEY_F1:
+                //this will pull up another window
+                //handles open, save, save as, and exit
+                break;
+            default: //anything to be written
+                break;
+          }
+          refresh(); //may have to change this for specific window
+        }
         endwin(); //end ncurses
         delete[] stringArray;
       }
