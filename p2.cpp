@@ -19,7 +19,39 @@ int main(const int argc, const char * argv []){
   
     //This will check whether a filename was included as an argument
     if(argc > 1){
-      //Window printed with file contents and functionalities implemented here
+      file = argv[1];
+      //These open the file automatically
+      ifstream fileStream1(file);
+      ifstream fileStream2(file);
+      if(!fileStream1){
+        cout << "While opening the file, an error occurred" << endl; 
+      }
+      else {
+        initscr(); //starts ncurses 
+        while(!fileStream1.eof()){
+          getline(fileStream1, line1);
+          count++; //counting number of lines
+        }
+        string * stringArray = new string[count];
+        for(int i = 0; i < count; i++){ //fills the array with file data
+          getline(fileStream2, line2);
+          stringArray[i] = line2;
+        }
+        //this gets the max length and width of the screen
+        getmaxyx([name of window], maxY, maxX);
+        bottom = maxY;
+        for(int i = 0; i <= bottom && i < count; i++){
+          printw(stringArray[i].c_str());
+          printw("\n");
+        }
+        refresh(); //this will display the contents of the window
+        keypad([name of window], TRUE); //enables reading of function keys
+        
+        //Code to take input
+        
+        endwin(); //end ncurses
+        delete[] stringArray;
+      }
     }
     else {
      //error message or potentially blank file pulled up here
