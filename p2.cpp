@@ -1,7 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdio.h>
 #include <ncurses.h>
+
+
 /**
 * Prototype of main
 */
@@ -72,6 +75,7 @@ int main(const int argc, const char * argv []){
             case KEY_F(1):
                 //this will pull up another window
                 //handles open, save, save as, and exit
+              
                 break;
             default: //anything to be written
                 break;
