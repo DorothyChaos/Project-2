@@ -1,3 +1,4 @@
+#include <panel.h> //for formatting
 #include <iostream>
 #include <fstream>
 #include <string>
