@@ -47,6 +47,7 @@ int main(const int argc, const char * argv []){
         refresh(); //this will display the contents of stdscr window
         keypad([name of window], TRUE); //enables reading of function keys
         
+        //potentially use raw or cbreak to make getch work properly?
         //Code to take input
         while(done != TRUE){
           int action = getch();
@@ -68,7 +69,7 @@ int main(const int argc, const char * argv []){
                 break; //spacebar was pressed
             case KEY_TAB:
                 break;
-            case KEY_F1:
+            case KEY_F(1):
                 //this will pull up another window
                 //handles open, save, save as, and exit
                 break;
