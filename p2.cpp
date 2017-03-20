@@ -29,6 +29,9 @@ int main(const int argc, const char * argv []){
       }
       else {
         initscr(); //starts ncurses 
+        noecho(); //so user input won't immediately show up--you can ask Prof Coterell
+        cbreak(); //so we can read each char without /n--you can ask Prof Coterell
+        
         while(!fileStream1.eof()){
           getline(fileStream1, line1);
           count++; //counting number of lines
@@ -74,6 +77,7 @@ int main(const int argc, const char * argv []){
                 //handles open, save, save as, and exit
                 break;
             default: //anything to be written
+              addch(action); //this outputs the character and advances the cursor 
                 break;
           }
           refresh(); //may have to change this for specific window
@@ -86,3 +90,5 @@ int main(const int argc, const char * argv []){
      //error message or potentially blank file pulled up here
     } 
 }
+
+//if we need copy paste capabilities: scanw() 
