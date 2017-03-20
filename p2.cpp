@@ -61,7 +61,10 @@ int main(const int argc, const char * argv []){
                 break;
             case KEY_BACKSPACE:
                 break;
-            case ' ':
+            case 10: //this is for the enter key
+              //stuff
+               break;
+            case ' ': //can use 032 if this doesn't work
                 break; //spacebar was pressed
             case KEY_TAB:
                 break;
