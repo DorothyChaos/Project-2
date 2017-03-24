@@ -10,7 +10,16 @@ int main(const int argc, const char * argv []);
 * F1 Menu method
 */
 void f1menu(){
-  
+  //Code from nike...
+        if(highlight == 0){ //Open
+          //accept standard input, check if std input is a valid file
+            //check if current file in editor has been saved, compare arrays
+              //if not, pop open window with yes or no
+          
+        }else if(highlight == 1){ //Save
+        }else if(highlight == 2){ //Save As
+        }else if(highlight == 3){ //Exit
+        }
 }
 /**
 * This program will create a text user interface
