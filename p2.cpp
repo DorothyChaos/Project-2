@@ -10,8 +10,46 @@ int main(const int argc, const char * argv []);
 * F1 Menu method
 */
 void f1menu(){
-  //Code from nike...
-        if(highlight == 0){ //Open
+  WINDOW * menuwin = newwin(8, 15, (LINES - 3)/2, (COLS - 10)/2);
+  box(menuwin, 0, 0);
+  refresh();
+  wrefresh(menuwin);
+  keypad(menuwin, TRUE);
+  string choices[4] = {
+    "    Open",
+    "    Save",
+    "    Save As",
+    "    Exit",
+  };
+  int choice;
+  int highlight = 0;
+  while(true){
+    for(int i = 0; i < 4; i++){
+      if(i == highlight){
+        wattron(menuwin, A_REVERSE);
+      }
+      mvwprintw(menuwin, i + 1, 1, choices[i].c_str());
+      wattroff(menuwin, A_REVERSE);
+    }
+    choice = wgetch(menuwin);
+    switch(choice){
+      case KEY_UP:
+          highlight--;
+          if(highlight == -1){//highlight is at the top
+            highlight = 0;
+          }
+          break;
+      case KEY_DOWN:
+          highlight++;
+          if(highlight == 4){//highlight is at the bottom
+            highlight = 3;
+          }
+          break;
+      default:
+          break;
+    }
+    if(choice == 10){
+      if(highlight == 0){ //Open
           //accept standard input, check if std input is a valid file
             //check if current file in editor has been saved, compare arrays
               //if not, pop open window with yes or no
@@ -20,7 +58,12 @@ void f1menu(){
         }else if(highlight == 2){ //Save As
         }else if(highlight == 3){ //Exit
         }
-}
+      refresh();
+      break;
+    }//if
+  }//while
+        
+}//F1 Menu
 /**
 * This program will create a text user interface
 */
