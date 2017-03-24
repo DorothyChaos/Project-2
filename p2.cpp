@@ -7,6 +7,12 @@
 */
 int main(const int argc, const char * argv []);
 /**
+* F1 Menu method
+*/
+void f1menu(){
+  
+}
+/**
 * This program will create a text user interface
 */
 int main(const int argc, const char * argv []){
